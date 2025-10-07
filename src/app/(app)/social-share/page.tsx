@@ -76,22 +76,23 @@ const socialFormats = {
 
 
     return (
+        <div className="min-h-screen bg-gray-900">
         <div className="container mx-auto p-4 max-w-4xl">
-          <h1 className="text-3xl font-bold mb-6 text-center">
+          <h1 className="text-3xl font-bold mb-6 text-center text-white">
             Social Media Image Creator
           </h1>
 
-          <div className="card">
+          <div className="card bg-gray-800 shadow-xl">
             <div className="card-body">
-              <h2 className="card-title mb-4">Upload an Image</h2>
+              <h2 className="card-title mb-4 text-white">Upload an Image</h2>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text">Choose an image file</span>
+                  <span className="label-text text-gray-300">Choose an image file</span>
                 </label>
                 <input
                   type="file"
                   onChange={handleFileUpload}
-                  className="file-input file-input-bordered file-input-primary w-full"
+                  className="file-input file-input-bordered file-input-primary w-full bg-gray-700 border-gray-600 text-white"
                 />
               </div>
 
@@ -103,10 +104,10 @@ const socialFormats = {
 
               {uploadedImage && (
                 <div className="mt-6">
-                  <h2 className="card-title mb-4">Select Social Media Format</h2>
+                  <h2 className="card-title mb-4 text-white">Select Social Media Format</h2>
                   <div className="form-control">
                     <select
-                      className="select select-bordered w-full"
+                      className="select select-bordered w-full bg-gray-700 border-gray-600 text-white"
                       value={selectedFormat}
                       onChange={(e) =>
                         setSelectedFormat(e.target.value as SocialFormat)
@@ -121,11 +122,11 @@ const socialFormats = {
                   </div>
 
                   <div className="mt-6 relative">
-                    <h3 className="text-lg font-semibold mb-2">Preview:</h3>
+                    <h3 className="text-lg font-semibold mb-2 text-white">Preview:</h3>
                     <div className="flex justify-center">
                       {isTransforming && (
-                        <div className="absolute inset-0 flex items-center justify-center bg-base-100 bg-opacity-50 z-10">
-                          <span className="loading loading-spinner loading-lg"></span>
+                        <div className="absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75 z-10">
+                          <span className="loading loading-spinner loading-lg text-white"></span>
                         </div>
                       )}
                       <CldImage
@@ -144,7 +145,7 @@ const socialFormats = {
                   </div>
 
                   <div className="card-actions justify-end mt-6">
-                    <button className="btn btn-primary" onClick={handleDownload}>
+                    <button className="btn btn-primary bg-blue-600 hover:bg-blue-700 border-blue-600" onClick={handleDownload}>
                       Download for {selectedFormat}
                     </button>
                   </div>
@@ -152,6 +153,7 @@ const socialFormats = {
               )}
             </div>
           </div>
+        </div>
         </div>
       );
 }

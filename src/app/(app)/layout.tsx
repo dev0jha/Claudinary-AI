@@ -60,9 +60,9 @@ export default function AppLayout({
                 <MenuIcon />
               </label>
             </div>
-            <div className="flex-1">
+            <div className="flex-1 lg:-ml-2">
               <Link href="/" onClick={handleLogoClick}>
-                <div className="btn btn-ghost normal-case text-2xl font-bold tracking-tight cursor-pointer text-white ">
+                <div className="btn btn-ghost normal-case text-2xl font-bold tracking-tight cursor-pointer text-white pl-0 lg:pl-1">
                   Cloudinary Showcase
                 </div>
               </Link>

@@ -46,51 +46,53 @@ function VideoUpload() {
 
 
     return (
+        <div className="min-h-screen bg-gray-900">
         <div className="container mx-auto p-4">
-          <h1 className="text-2xl font-bold mb-4">Upload Video</h1>
+          <h1 className="text-2xl font-bold mb-4 text-white">Upload Video</h1>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
               <label className="label">
-                <span className="label-text">Title</span>
+                <span className="label-text text-gray-300">Title</span>
               </label>
               <input
                 type="text"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                className="input input-bordered w-full"
+                className="input input-bordered w-full bg-gray-700 border-gray-600 text-white"
                 required
               />
             </div>
             <div>
               <label className="label">
-                <span className="label-text">Description</span>
+                <span className="label-text text-gray-300">Description</span>
               </label>
               <textarea
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                className="textarea textarea-bordered w-full"
+                className="textarea textarea-bordered w-full bg-gray-700 border-gray-600 text-white"
               />
             </div>
             <div>
               <label className="label">
-                <span className="label-text">Video File</span>
+                <span className="label-text text-gray-300">Video File</span>
               </label>
               <input
                 type="file"
                 accept="video/*"
                 onChange={(e) => setFile(e.target.files?.[0] || null)}
-                className="file-input file-input-bordered w-full"
+                className="file-input file-input-bordered w-full bg-gray-700 border-gray-600 text-white"
                 required
               />
             </div>
             <button
               type="submit"
-              className="btn btn-primary"
+              className="btn btn-primary bg-blue-600 hover:bg-blue-700 border-blue-600"
               disabled={isUploading}
             >
               {isUploading ? "Uploading..." : "Upload Video"}
             </button>
           </form>
+        </div>
         </div>
       );
 }
