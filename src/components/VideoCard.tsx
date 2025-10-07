@@ -74,15 +74,15 @@ const  VideoCard: React.FC<VideoCardProps> = ({video, onDownload}) => {
 
       return (
         <div
-          className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300"
+          className="card bg-gray-800 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-700"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
           <figure className="aspect-video relative">
             {isHovered ? (
               previewError ? (
-                <div className="w-full h-full flex items-center justify-center bg-gray-200">
-                  <p className="text-red-500">Preview not available</p>
+                <div className="w-full h-full flex items-center justify-center bg-gray-700">
+                  <p className="text-red-400">Preview not available</p>
                 </div>
               ) : (
                 <video
@@ -103,42 +103,42 @@ const  VideoCard: React.FC<VideoCardProps> = ({video, onDownload}) => {
                 className="w-full h-full object-cover"
               />
             )}
-            <div className="absolute bottom-2 right-2 bg-base-100 bg-opacity-70 px-2 py-1 rounded-lg text-sm flex items-center">
+            <div className="absolute bottom-2 right-2 bg-gray-800 bg-opacity-80 px-2 py-1 rounded-lg text-sm flex items-center text-white">
               <Clock size={16} className="mr-1" />
               {formatDuration(Number(video.duration))}
             </div>
           </figure>
           <div className="card-body p-4">
-            <h2 className="card-title text-lg font-bold">{video.title}</h2>
-            <p className="text-sm text-base-content opacity-70 mb-4">
+            <h2 className="card-title text-lg font-bold text-white">{video.title}</h2>
+            <p className="text-sm text-gray-300 mb-4">
               {video.description}
             </p>
-            <p className="text-sm text-base-content opacity-70 mb-4">
+            <p className="text-sm text-gray-400 mb-4">
               Uploaded {dayjs(video.createdAt).fromNow()}
             </p>
             <div className="grid grid-cols-2 gap-4 text-sm">
               <div className="flex items-center">
-                <FileUp size={18} className="mr-2 text-primary" />
+                <FileUp size={18} className="mr-2 text-blue-400" />
                 <div>
-                  <div className="font-semibold">Original</div>
-                  <div>{formatSize(Number(video.originalSize))}</div>
+                  <div className="font-semibold text-white">Original</div>
+                  <div className="text-gray-300">{formatSize(Number(video.originalSize))}</div>
                 </div>
               </div>
               <div className="flex items-center">
-                <FileDown size={18} className="mr-2 text-secondary" />
+                <FileDown size={18} className="mr-2 text-green-400" />
                 <div>
-                  <div className="font-semibold">Compressed</div>
-                  <div>{formatSize(Number(video.compressedSize))}</div>
+                  <div className="font-semibold text-white">Compressed</div>
+                  <div className="text-gray-300">{formatSize(Number(video.compressedSize))}</div>
                 </div>
               </div>
             </div>
             <div className="flex justify-between items-center mt-4">
-              <div className="text-sm font-semibold">
+              <div className="text-sm font-semibold text-white">
                 Compression:{" "}
-                <span className="text-accent">{compressionPercentage}%</span>
+                <span className="text-yellow-400">{compressionPercentage}%</span>
               </div>
               <button
-                className="btn btn-primary btn-sm"
+                className="btn bg-blue-600 hover:bg-blue-700 text-white btn-sm border-none"
                 onClick={() =>
                   onDownload(getFullVideoUrl(video.publicId), video.title)
                 }

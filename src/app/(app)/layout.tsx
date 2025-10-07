@@ -40,7 +40,7 @@ export default function AppLayout({
   };
 
   return (
-    <div className="drawer lg:drawer-open">
+    <div className="drawer lg:drawer-open bg-gray-900">
       <input
         id="sidebar-drawer"
         type="checkbox"
@@ -50,19 +50,19 @@ export default function AppLayout({
       />
       <div className="drawer-content flex flex-col">
         {/* Navbar */}
-        <header className="w-full bg-base-200">
+        <header className="w-full bg-gray-800 border-b border-gray-700">
           <div className="navbar max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex-none lg:hidden">
               <label
                 htmlFor="sidebar-drawer"
-                className="btn btn-square btn-ghost drawer-button"
+                className="btn btn-square btn-ghost drawer-button text-white hover:bg-gray-700"
               >
                 <MenuIcon />
               </label>
             </div>
             <div className="flex-1">
               <Link href="/" onClick={handleLogoClick}>
-                <div className="btn btn-ghost normal-case text-2xl font-bold tracking-tight cursor-pointer">
+                <div className="btn btn-ghost normal-case text-2xl font-bold tracking-tight cursor-pointer text-white ">
                   Cloudinary Showcase
                 </div>
               </Link>
@@ -82,12 +82,12 @@ export default function AppLayout({
                       />
                     </div>
                   </div>
-                  <span className="text-sm truncate max-w-xs lg:max-w-md">
+                  <span className="text-sm truncate max-w-xs lg:max-w-md text-gray-200">
                     {user.username || user.emailAddresses[0].emailAddress}
                   </span>
                   <button
                     onClick={handleSignOut}
-                    className="btn btn-ghost btn-circle"
+                    className="btn btn-ghost btn-circle text-white hover:bg-gray-700"
                   >
                     <LogOutIcon className="h-6 w-6" />
                   </button>
@@ -97,7 +97,7 @@ export default function AppLayout({
           </div>
         </header>
         {/* Page content */}
-        <main className="flex-grow">
+        <main className="flex-grow bg-gray-900">
           <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 my-8">
             {children}
           </div>
@@ -105,19 +105,19 @@ export default function AppLayout({
       </div>
       <div className="drawer-side">
         <label htmlFor="sidebar-drawer" className="drawer-overlay"></label>
-        <aside className="bg-base-200 w-64 h-full flex flex-col">
+        <aside className="bg-gray-800 w-64 h-full flex flex-col border-r border-gray-700">
           <div className="flex items-center justify-center py-4">
-            <ImageIcon className="w-10 h-10 text-primary" />
+            <ImageIcon className="w-10 h-10 text-blue-400" />
           </div>
-          <ul className="menu p-4 w-full text-base-content flex-grow">
+          <ul className="menu p-4 w-full text-gray-200 flex-grow">
             {sidebarItems.map((item) => (
               <li key={item.href} className="mb-2">
                 <Link
                   href={item.href}
                   className={`flex items-center space-x-4 px-4 py-2 rounded-lg ${
                     pathname === item.href
-                      ? "bg-primary text-white"
-                      : "hover:bg-base-300"
+                      ? "bg-blue-600 text-white"
+                      : "hover:bg-gray-700 text-gray-200"
                   }`}
                   onClick={() => setSidebarOpen(false)}
                 >
@@ -131,7 +131,7 @@ export default function AppLayout({
             <div className="p-4">
               <button
                 onClick={handleSignOut}
-                className="btn btn-outline btn-error w-full"
+                className="btn bg-red-600 hover:bg-red-700 text-white border-none w-full"
               >
                 <LogOutIcon className="mr-2 h-5 w-5" />
                 Sign Out

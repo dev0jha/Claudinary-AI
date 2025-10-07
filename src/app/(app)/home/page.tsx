@@ -41,39 +41,41 @@ function Home() {
     }, [])
 
     if(loading){
-        return <div className="flex justify-center items-center min-h-screen">
-            <span className="loading loading-spinner loading-lg"></span>
+        return <div className="flex justify-center items-center min-h-screen bg-gray-900">
+            <span className="loading loading-spinner loading-lg text-white"></span>
         </div>
     }
 
     if(error) {
-        return <div className="flex justify-center items-center min-h-screen">
-            <div className="alert alert-error">
+        return <div className="flex justify-center items-center min-h-screen bg-gray-900">
+            <div className="alert alert-error bg-red-900 border-red-700 text-red-100">
                 <span>{error}</span>
             </div>
         </div>
     }
 
     return (
-        <div className="container mx-auto p-4">
-          <h1 className="text-2xl font-bold mb-4">Videos</h1>
-          {videos.length === 0 ? (
-            <div className="text-center text-lg text-gray-500">
-              No videos available
+        <div className="min-h-screen bg-gray-900">
+            <div className="container mx-auto p-4">
+              <h1 className="text-2xl text-white font-bold mb-4">Videos</h1>
+              {videos.length === 0 ? (
+                <div className="text-center text-lg text-gray-400">
+                  No videos available
+                </div>
+              ) : (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {
+                    videos.map((video) => (
+                        <VideoCard
+                            key={video.id}
+                            video={video}
+                            onDownload={handleDownload}
+                        />
+                    ))
+                  }
+                </div>
+              )}
             </div>
-          ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {
-                videos.map((video) => (
-                    <VideoCard
-                        key={video.id}
-                        video={video}
-                        onDownload={handleDownload}
-                    />
-                ))
-              }
-            </div>
-          )}
         </div>
       );
 }
