@@ -47,46 +47,46 @@ function VideoUpload() {
 
     return (
         <div className="min-h-screen bg-gray-900">
-        <div className="container mx-auto p-4">
-          <h1 className="text-2xl font-bold mb-4 text-white">Upload Video</h1>
-          <form onSubmit={handleSubmit} className="space-y-4">
+        <div className="container mx-auto px-2 sm:px-4 py-4 max-w-2xl">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 text-white">Upload Video</h1>
+          <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4 bg-gray-800 p-4 sm:p-6 rounded-lg shadow-xl">
             <div>
-              <label className="label">
-                <span className="label-text text-gray-300">Title</span>
+              <label className="label py-2">
+                <span className="label-text text-gray-300 text-sm sm:text-base">Title</span>
               </label>
               <input
                 type="text"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                className="input input-bordered w-full bg-gray-700 border-gray-600 text-white"
+                className="input input-bordered w-full bg-gray-700 border-gray-600 text-white text-sm sm:text-base"
                 required
               />
             </div>
             <div>
-              <label className="label">
-                <span className="label-text text-gray-300">Description</span>
+              <label className="label py-2">
+                <span className="label-text text-gray-300 text-sm sm:text-base">Description</span>
               </label>
               <textarea
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                className="textarea textarea-bordered w-full bg-gray-700 border-gray-600 text-white"
+                className="textarea textarea-bordered w-full bg-gray-700 border-gray-600 text-white text-sm sm:text-base min-h-[80px] sm:min-h-[100px]"
               />
             </div>
             <div>
-              <label className="label">
-                <span className="label-text text-gray-300">Video File</span>
+              <label className="label py-2">
+                <span className="label-text text-gray-300 text-sm sm:text-base">Video File</span>
               </label>
               <input
                 type="file"
                 accept="video/*"
                 onChange={(e) => setFile(e.target.files?.[0] || null)}
-                className="file-input file-input-bordered w-full bg-gray-700 border-gray-600 text-white"
+                className="file-input file-input-bordered w-full bg-gray-700 border-gray-600 text-white text-sm sm:text-base"
                 required
               />
             </div>
             <button
               type="submit"
-              className="btn btn-primary bg-blue-600 hover:bg-blue-700 border-blue-600"
+              className="btn btn-primary bg-blue-600 hover:bg-blue-700 border-blue-600 w-full text-sm sm:text-base"
               disabled={isUploading}
             >
               {isUploading ? "Uploading..." : "Upload Video"}

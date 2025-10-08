@@ -56,14 +56,14 @@ function Home() {
 
     return (
         <div className="min-h-screen bg-gray-900">
-            <div className="container mx-auto p-4">
-              <h1 className="text-2xl text-white font-bold mb-4">Videos</h1>
+            <div className="container mx-auto px-2 sm:px-4 py-4">
+              <h1 className="text-xl sm:text-2xl md:text-3xl text-white font-bold mb-4">Videos</h1>
               {videos.length === 0 ? (
-                <div className="text-center text-lg text-gray-400">
+                <div className="text-center text-base sm:text-lg text-gray-400 py-8">
                   No videos available
                 </div>
               ) : (
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                   {
                     videos.map((video) => (
                         <VideoCard

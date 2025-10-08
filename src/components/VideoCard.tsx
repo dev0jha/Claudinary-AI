@@ -82,7 +82,7 @@ const  VideoCard: React.FC<VideoCardProps> = ({video, onDownload}) => {
             {isHovered ? (
               previewError ? (
                 <div className="w-full h-full flex items-center justify-center bg-gray-700">
-                  <p className="text-red-400">Preview not available</p>
+                  <p className="text-red-400 text-sm sm:text-base">Preview not available</p>
                 </div>
               ) : (
                 <video
@@ -103,47 +103,47 @@ const  VideoCard: React.FC<VideoCardProps> = ({video, onDownload}) => {
                 className="w-full h-full object-cover"
               />
             )}
-            <div className="absolute bottom-2 right-2 bg-gray-800 bg-opacity-80 px-2 py-1 rounded-lg text-sm flex items-center text-white">
+            <div className="absolute bottom-2 right-2 bg-gray-800 bg-opacity-80 px-2 py-1 rounded-lg text-xs sm:text-sm flex items-center text-white">
               <Clock size={16} className="mr-1" />
               {formatDuration(Number(video.duration))}
             </div>
           </figure>
-          <div className="card-body p-4">
-            <h2 className="card-title text-lg font-bold text-white">{video.title}</h2>
-            <p className="text-sm text-gray-300 mb-4">
+          <div className="card-body p-3 sm:p-4">
+            <h2 className="card-title text-base sm:text-lg font-bold text-white line-clamp-2">{video.title}</h2>
+            <p className="text-xs sm:text-sm text-gray-300 mb-2 sm:mb-4 line-clamp-2">
               {video.description}
             </p>
-            <p className="text-sm text-gray-400 mb-4">
+            <p className="text-xs sm:text-sm text-gray-400 mb-2 sm:mb-4">
               Uploaded {dayjs(video.createdAt).fromNow()}
             </p>
-            <div className="grid grid-cols-2 gap-4 text-sm">
+            <div className="grid grid-cols-2 gap-2 sm:gap-4 text-xs sm:text-sm">
               <div className="flex items-center">
-                <FileUp size={18} className="mr-2 text-blue-400" />
-                <div>
-                  <div className="font-semibold text-white">Original</div>
-                  <div className="text-gray-300">{formatSize(Number(video.originalSize))}</div>
+                <FileUp size={16} className="mr-1 sm:mr-2 text-blue-400 flex-shrink-0" />
+                <div className="min-w-0">
+                  <div className="font-semibold text-white truncate">Original</div>
+                  <div className="text-gray-300 truncate">{formatSize(Number(video.originalSize))}</div>
                 </div>
               </div>
               <div className="flex items-center">
-                <FileDown size={18} className="mr-2 text-green-400" />
-                <div>
-                  <div className="font-semibold text-white">Compressed</div>
-                  <div className="text-gray-300">{formatSize(Number(video.compressedSize))}</div>
+                <FileDown size={16} className="mr-1 sm:mr-2 text-green-400 flex-shrink-0" />
+                <div className="min-w-0">
+                  <div className="font-semibold text-white truncate">Compressed</div>
+                  <div className="text-gray-300 truncate">{formatSize(Number(video.compressedSize))}</div>
                 </div>
               </div>
             </div>
-            <div className="flex justify-between items-center mt-4">
-              <div className="text-sm font-semibold text-white">
+            <div className="flex justify-between items-center mt-3 sm:mt-4 gap-2">
+              <div className="text-xs sm:text-sm font-semibold text-white">
                 Compression:{" "}
                 <span className="text-yellow-400">{compressionPercentage}%</span>
               </div>
               <button
-                className="btn bg-blue-600 hover:bg-blue-700 text-white btn-sm border-none"
+                className="btn bg-blue-600 hover:bg-blue-700 text-white btn-xs sm:btn-sm border-none flex-shrink-0"
                 onClick={() =>
                   onDownload(getFullVideoUrl(video.publicId), video.title)
                 }
               >
-                <Download size={16} />
+                <Download size={14} className="sm:w-4 sm:h-4" />
               </button>
             </div>
           </div>

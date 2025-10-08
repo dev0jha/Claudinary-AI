@@ -51,26 +51,27 @@ export default function AppLayout({
       <div className="drawer-content flex flex-col">
         {/* Navbar */}
         <header className="w-full bg-gray-800 border-b border-gray-700">
-          <div className="navbar max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="navbar max-w-7xl mx-auto px-2 sm:px-4 lg:px-8 min-h-[60px]">
             <div className="flex-none lg:hidden">
               <label
                 htmlFor="sidebar-drawer"
-                className="btn btn-square btn-ghost drawer-button text-white hover:bg-gray-700"
+                className="btn btn-square btn-ghost drawer-button text-white hover:bg-gray-700 btn-sm"
               >
-                <MenuIcon />
+                <MenuIcon className="w-5 h-5" />
               </label>
             </div>
-            <div className="flex-1 lg:-ml-2">
+            <div className="flex-1 lg:-ml-6 -ml-2">
               <Link href="/" onClick={handleLogoClick}>
-                <div className="btn btn-ghost normal-case text-2xl font-bold tracking-tight cursor-pointer text-white pl-0 lg:pl-1">
-                  Cloudinary Showcase
+                <div className="btn btn-ghost normal-case text-lg sm:text-xl lg:text-2xl font-bold tracking-tight cursor-pointer text-white pl-0 py-1 h-auto min-h-0">
+                  <span className="hidden sm:inline">Cloudinary Showcase</span>
+                  <span className="sm:hidden">Cloudinary</span>
                 </div>
               </Link>
             </div>
-            <div className="flex-none flex items-center space-x-4">
+            <div className="flex-none flex items-center space-x-2 sm:space-x-4">
               {user && (
                 <>
-                  <div className="avatar">
+                  <div className="avatar hidden sm:block">
                     <div className="w-8 h-8 rounded-full">
                       <Image
                         src={user.imageUrl}
@@ -82,14 +83,14 @@ export default function AppLayout({
                       />
                     </div>
                   </div>
-                  <span className="text-sm truncate max-w-xs lg:max-w-md text-gray-200">
+                  <span className="text-xs sm:text-sm truncate max-w-[80px] sm:max-w-xs lg:max-w-md text-gray-200 hidden sm:inline-block">
                     {user.username || user.emailAddresses[0].emailAddress}
                   </span>
                   <button
                     onClick={handleSignOut}
-                    className="btn btn-ghost btn-circle text-white hover:bg-gray-700"
+                    className="btn btn-ghost btn-circle text-white hover:bg-gray-700 btn-sm sm:btn-md"
                   >
-                    <LogOutIcon className="h-6 w-6" />
+                    <LogOutIcon className="h-4 w-4 sm:h-6 sm:w-6" />
                   </button>
                 </>
               )}

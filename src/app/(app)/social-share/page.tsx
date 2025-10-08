@@ -77,14 +77,14 @@ const socialFormats = {
 
     return (
         <div className="min-h-screen bg-gray-900">
-        <div className="container mx-auto p-4 max-w-4xl">
-          <h1 className="text-3xl font-bold mb-6 text-center text-white">
+        <div className="container mx-auto px-2 sm:px-4 py-4 max-w-4xl">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6 text-center text-white">
             Social Media Image Creator
           </h1>
 
           <div className="card bg-gray-800 shadow-xl">
-            <div className="card-body">
-              <h2 className="card-title mb-4 text-white">Upload an Image</h2>
+            <div className="card-body p-4 sm:p-6">
+              <h2 className="card-title mb-3 sm:mb-4 text-lg sm:text-xl text-white">Upload an Image</h2>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text text-gray-300">Choose an image file</span>
@@ -103,8 +103,8 @@ const socialFormats = {
               )}
 
               {uploadedImage && (
-                <div className="mt-6">
-                  <h2 className="card-title mb-4 text-white">Select Social Media Format</h2>
+                <div className="mt-4 sm:mt-6">
+                  <h2 className="card-title mb-3 sm:mb-4 text-lg sm:text-xl text-white">Select Social Media Format</h2>
                   <div className="form-control">
                     <select
                       className="select select-bordered w-full bg-gray-700 border-gray-600 text-white"
@@ -121,31 +121,32 @@ const socialFormats = {
                     </select>
                   </div>
 
-                  <div className="mt-6 relative">
-                    <h3 className="text-lg font-semibold mb-2 text-white">Preview:</h3>
-                    <div className="flex justify-center">
+                  <div className="mt-4 sm:mt-6 relative">
+                    <h3 className="text-base sm:text-lg font-semibold mb-2 text-white">Preview:</h3>
+                    <div className="flex justify-center overflow-hidden">
                       {isTransforming && (
                         <div className="absolute inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75 z-10">
-                          <span className="loading loading-spinner loading-lg text-white"></span>
+                          <span className="loading loading-spinner loading-md sm:loading-lg text-white"></span>
                         </div>
                       )}
                       <CldImage
                         width={socialFormats[selectedFormat].width}
                         height={socialFormats[selectedFormat].height}
                         src={uploadedImage}
-                        sizes="100vw"
+                        sizes="(max-width: 640px) 90vw, (max-width: 1024px) 80vw, 100vw"
                         alt="transformed image"
                         crop="fill"
                         aspectRatio={socialFormats[selectedFormat].aspectRatio}
                         gravity='auto'
                         ref={imageRef}
                         onLoad={() => setIsTransforming(false)}
+                        className="max-w-full h-auto"
                         />
                     </div>
                   </div>
 
-                  <div className="card-actions justify-end mt-6">
-                    <button className="btn btn-primary bg-blue-600 hover:bg-blue-700 border-blue-600" onClick={handleDownload}>
+                  <div className="card-actions justify-end mt-4 sm:mt-6">
+                    <button className="btn btn-primary bg-blue-600 hover:bg-blue-700 border-blue-600 btn-sm sm:btn-md w-full sm:w-auto" onClick={handleDownload}>
                       Download for {selectedFormat}
                     </button>
                   </div>
