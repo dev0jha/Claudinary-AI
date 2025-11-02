@@ -7,6 +7,7 @@ import Features from './(app)/Features'
 import Stats from './(app)/Stats'
 import Benefits from './(app)/Benefits'
 import CTA from './(app)/CTA'
+import Footer from './(app)/Footer'
 
 function page() {
   return (
@@ -19,6 +20,7 @@ function page() {
       <PricingDemo />
       <CTA />
       <ContactDemo />
+      <Footer />
     </div>
   )
 }
