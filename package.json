@@ -23,6 +23,7 @@
     "dayjs": "^1.11.18",
     "filesize": "^11.0.13",
     "framer-motion": "^12.23.22",
+    "geist": "^1.7.0",
     "lucide-react": "^0.544.0",
     "motion": "^12.23.22",
     "next": "15.5.4",
