@@ -61,10 +61,10 @@ export default function AppLayout({
               </label>
             </div>
             <div className="flex-1 lg:-ml-6 -ml-2">
-              <Link href="/" onClick={handleLogoClick}>
+              <Link href="/">
                 <div className="btn btn-ghost normal-case text-lg sm:text-xl lg:text-2xl font-bold tracking-tight cursor-pointer text-white pl-0 py-1 h-auto min-h-0">
-                  <span className="hidden sm:inline">Cloudinary Showcase</span>
-                  <span className="sm:hidden">Cloudinary</span>
+                  <span className="hidden sm:inline">Claudinary Showcase</span>
+                  <span className="sm:hidden">Claudinary</span>
                 </div>
               </Link>
             </div>
