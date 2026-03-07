@@ -1,14 +1,14 @@
 "use client";
 
-import { motion } from "framer-motion"
-import { Check, X } from "lucide-react"
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-import { Card } from "@/components/ui/card"
+import { motion } from "framer-motion";
+import { Check, X } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 
 interface BenefitProps {
-  text: string
-  checked: boolean
+  text: string;
+  checked: boolean;
 }
 
 const Benefit = ({ text, checked }: BenefitProps) => {
@@ -25,16 +25,16 @@ const Benefit = ({ text, checked }: BenefitProps) => {
       )}
       <span className="text-sm dark:text-zinc-300 text-zinc-600">{text}</span>
     </div>
-  )
-}
+  );
+};
 
 interface PricingCardProps {
-  tier: string
-  price: string
-  bestFor: string
-  CTA: string
-  benefits: Array<{ text: string; checked: boolean }>
-  className?: string
+  tier: string;
+  price: string;
+  bestFor: string;
+  CTA: string;
+  benefits: Array<{ text: string; checked: boolean }>;
+  className?: string;
 }
 
 export const PricingCard = ({
@@ -53,12 +53,15 @@ export const PricingCard = ({
     >
       <Card
         className={cn(
-          "relative h-full w-full overflow-hidden border",
-          "dark:border-zinc-700 dark:bg-gradient-to-br dark:from-zinc-950/50 dark:to-zinc-900/80",
-          "border-zinc-200 bg-gradient-to-br from-zinc-50/50 to-zinc-100/80",
+          "relative h-full w-full overflow-hidden border border-white/10",
           "p-6",
           className,
         )}
+        style={{
+          backgroundColor: "#121212",
+          backgroundImage:
+            "repeating-linear-gradient(315deg,rgba(255,255,255,0.06) 0px,rgba(255,255,255,0.06) 1px,transparent 1px,transparent 10px)",
+        }}
       >
         <div className="flex flex-col items-center border-b pb-6 dark:border-zinc-700 border-zinc-200">
           <span className="mb-6 inline-block dark:text-zinc-50 text-zinc-900">
@@ -84,5 +87,5 @@ export const PricingCard = ({
         </Button>
       </Card>
     </motion.div>
-  )
-}
+  );
+};
