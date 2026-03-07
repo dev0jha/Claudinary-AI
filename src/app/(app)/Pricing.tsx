@@ -1,19 +1,19 @@
-import { PricingCard } from "@/components/ui/dark-gradient-pricing"
+import { PricingCard } from "@/components/ui/dark-gradient-pricing";
 
 function PricingDemo() {
   return (
-    <section className="relative overflow-hidden bg-background text-foreground">
-      <div className="relative z-10 mx-auto max-w-5xl px-4 py-20 md:px-8">
-        <div className="mb-12 space-y-3">
-          <h2 className="text-center text-3xl font-semibold leading-tight sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">
+    <section style={{ background: "#121212" }} className="text-white">
+      <div className="mx-auto max-w-5xl px-6 py-24 md:px-8">
+        <div className="mb-16">
+          <h2 className="text-3xl font-semibold tracking-tight text-white md:text-4xl">
             Pricing
           </h2>
-          <p className="text-center text-base text-muted-foreground md:text-lg">
+          <p className="mt-3 text-sm text-white/40">
             Use it for free for yourself, upgrade when your team needs advanced
             control.
           </p>
         </div>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
           <PricingCard
             tier="Free"
             price="$0/mo"
@@ -59,7 +59,7 @@ function PricingDemo() {
         </div>
       </div>
     </section>
-  )
+  );
 }
 
-export { PricingDemo }
+export { PricingDemo };

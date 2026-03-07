@@ -5,7 +5,18 @@ import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 
 export function InfiniteMovingCardsDemo() {
   return (
-    <div className="h-[40rem] rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
+    <div
+      style={{ background: "#121212" }}
+      className="flex flex-col items-center justify-center overflow-hidden py-16"
+    >
+      <div className="mx-auto max-w-5xl px-6 w-full mb-10">
+        <h2 className="text-3xl font-semibold tracking-tight text-white md:text-4xl">
+          What people say
+        </h2>
+        <p className="mt-3 text-sm text-white/40">
+          Voices from creators and developers who use Claudinary.
+        </p>
+      </div>
       <InfiniteMovingCards
         items={testimonials}
         direction="right"
@@ -18,13 +29,13 @@ export function InfiniteMovingCardsDemo() {
 const testimonials = [
   {
     quote:
-      "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair.",
+      "It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness.",
     name: "Charles Dickens",
     title: "A Tale of Two Cities",
   },
   {
     quote:
-      "To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer The slings and arrows of outrageous fortune, Or to take Arms against a Sea of troubles, And by opposing end them: to die, to sleep.",
+      "To be, or not to be, that is the question: Whether 'tis nobler in the mind to suffer the slings and arrows of outrageous fortune.",
     name: "William Shakespeare",
     title: "Hamlet",
   },
@@ -41,7 +52,7 @@ const testimonials = [
   },
   {
     quote:
-      "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, and nothing particular to interest me on shore, I thought I would sail about a little and see the watery part of the world.",
+      "Call me Ishmael. Some years ago—never mind how long precisely—having little or no money in my purse, I thought I would sail about a little.",
     name: "Herman Melville",
     title: "Moby-Dick",
   },

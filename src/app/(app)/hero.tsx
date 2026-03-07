@@ -1,107 +1,85 @@
 "use client";
 
-
 import { motion } from "motion/react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { AnimatedThemeToggler } from "@/components/ui/animated-theme-toggler"
 
 export function HeroSectionOne() {
   const router = useRouter();
 
-  const handleExploreClick = () => {
-    router.push("/home");
-  };
-
   return (
-    <div className="relative mx-auto mb-10 flex max-w-7xl flex-col items-center justify-center">
+    <div className="w-full flex flex-col items-center justify-center">
       <Navbar />
-      <div className="absolute inset-y-0 left-0 h-full w-px bg-neutral-200/80 dark:bg-neutral-800/80">
-        <div className="absolute top-0 h-40 w-px bg-gradient-to-b from-transparent via-blue-500 to-transparent" />
-      </div>
-      <div className="absolute inset-y-0 right-0 h-full w-px bg-neutral-200/80 dark:bg-neutral-800/80">
-        <div className="absolute h-40 w-px bg-gradient-to-b from-transparent via-blue-500 to-transparent" />
-      </div>
-      <div className="absolute inset-x-0 bottom-0 h-px w-full bg-neutral-200/80 dark:bg-neutral-800/80">
-        <div className="absolute mx-auto h-px w-40 bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
-      </div>
-      <div className="px-4 py-10 md:py-20">
-        <h1 className="relative z-10 mx-auto max-w-4xl text-center text-2xl font-bold text-slate-700 md:text-4xl lg:text-7xl dark:text-slate-300">
-          {"Generate images with Cloudinary"
-            .split(" ")
-            .map((word, index) => (
-              <motion.span
-                key={index}
-                initial={{ opacity: 0, filter: "blur(4px)", y: 10 }}
-                animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-                transition={{
-                  duration: 0.3,
-                  delay: index * 0.1,
-                  ease: "easeInOut",
-                }}
-                className="mr-2 inline-block"
-              >
-                {word}
-              </motion.span>
-            ))}
+
+      <div className="px-4 py-24 md:py-36 flex flex-col items-center text-center">
+        <motion.span
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, ease: "easeOut" }}
+          className="mb-6 inline-block rounded-full border border-white/10 px-4 py-1 text-xs tracking-widest text-white/40 uppercase"
+        >
+          AI-Powered Media Platform
+        </motion.span>
+
+        <h1 className="relative z-10 mx-auto max-w-3xl text-4xl font-semibold tracking-tight text-white md:text-6xl lg:text-7xl leading-[1.1]">
+          {"Generate images with Cloudinary".split(" ").map((word, index) => (
+            <motion.span
+              key={index}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{
+                duration: 0.35,
+                delay: index * 0.07,
+                ease: "easeOut",
+              }}
+              className="mr-2 inline-block"
+            >
+              {word}
+            </motion.span>
+          ))}
         </h1>
+
         <motion.p
-          initial={{
-            opacity: 0,
-          }}
-          animate={{
-            opacity: 1,
-          }}
-          transition={{
-            duration: 0.3,
-            delay: 0.8,
-          }}
-          className="relative z-10 mx-auto max-w-xl py-4 text-center text-lg font-normal text-neutral-600 dark:text-neutral-400"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.7 }}
+          className="relative z-10 mx-auto mt-6 max-w-lg text-base font-normal text-white/40 leading-relaxed"
         >
-          With AI-powered image generation from text or existing media, delivering optimized, high-quality visuals instantly through its cloud platform.
+          AI-powered image generation from text or existing media, delivering
+          optimized, high-quality visuals instantly through cloud
+          infrastructure.
         </motion.p>
+
         <motion.div
-          initial={{
-            opacity: 0,
-          }}
-          animate={{
-            opacity: 1,
-          }}
-          transition={{
-            duration: 0.3,
-            delay: 1,
-          }}
-          className="relative z-10 mt-8 flex flex-wrap items-center justify-center gap-4"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.4, delay: 0.9 }}
+          className="relative z-10 mt-10 flex flex-wrap items-center justify-center gap-3"
         >
-          <button 
-            onClick={handleExploreClick}
-            className="w-60 transform rounded-lg bg-black px-6 py-2 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200"
+          <button
+            onClick={() => router.push("/home")}
+            className="rounded-md bg-white px-6 py-2.5 text-sm font-medium text-black transition-all duration-200 hover:bg-white/90"
           >
             Explore Now
           </button>
-          <button className="w-60 transform rounded-lg border border-gray-300 bg-white px-6 py-2 font-medium text-black transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-100 dark:border-gray-700 dark:bg-black dark:text-white dark:hover:bg-gray-900">
-            Contact Support
+          <button
+            onClick={() => router.push("/sign-in")}
+            className="rounded-md border border-white/10 px-6 py-2.5 text-sm font-medium text-white/60 transition-all duration-200 hover:border-white/20 hover:text-white/80"
+          >
+            Sign In
           </button>
         </motion.div>
+
         <motion.div
-          initial={{
-            opacity: 0,
-            y: 10,
-          }}
-          animate={{
-            opacity: 1,
-            y: 0,
-          }}
-          transition={{
-            duration: 0.3,
-            delay: 1.2,
-          }}
-          className="relative z-10 mt-20 rounded-3xl border border-neutral-200 bg-neutral-100 p-4 shadow-md dark:border-neutral-800 dark:bg-neutral-900"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 1.1 }}
+          className="relative z-10 mt-20 w-full max-w-4xl"
         >
-          <div className="w-full overflow-hidden rounded-xl border border-gray-300 dark:border-gray-700">
+          <div className="overflow-hidden rounded-xl border border-white/[0.06]">
             <Image
               src="/Claudinary.png"
-              alt="Landing page preview"
+              alt="Claudinary AI Preview"
               className="aspect-[16/9] h-auto w-full object-cover"
               height={1000}
               width={1000}
@@ -116,25 +94,20 @@ export function HeroSectionOne() {
 const Navbar = () => {
   const router = useRouter();
 
-  const handleLoginClick = () => {
-    router.push("/sign-in");
-  };
-
   return (
-    <nav className="flex w-full items-center justify-between border-t border-b border-neutral-200 px-4 py-4 dark:border-neutral-800">
-      <div className="flex items-center gap-2">
-        <div className="size-7 rounded-full bg-gradient-to-br from-violet-500 to-pink-500" />
-        <h1 className="text-base font-bold md:text-2xl">Claudinary AI</h1>
+    <nav className="flex w-full items-center justify-between border-b border-white/[0.06] px-6 py-4">
+      <div className="flex items-center gap-2.5">
+        <div className="size-6 rounded-full bg-white/10" />
+        <span className="text-sm font-semibold text-white tracking-tight">
+          Claudinary AI
+        </span>
       </div>
-      <div className="flex items-center gap-4">
-        <AnimatedThemeToggler />
-        <button 
-          onClick={handleLoginClick}
-          className="w-24 transform rounded-lg bg-black px-6 py-2 font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-gray-800 md:w-32 dark:bg-white dark:text-black dark:hover:bg-gray-200"
-        >
-          Login
-        </button>
-      </div>
+      <button
+        onClick={() => router.push("/sign-in")}
+        className="rounded-md border border-white/10 px-4 py-1.5 text-xs font-medium text-white/60 transition-all duration-200 hover:border-white/20 hover:text-white/80"
+      >
+        Login
+      </button>
     </nav>
   );
 };
