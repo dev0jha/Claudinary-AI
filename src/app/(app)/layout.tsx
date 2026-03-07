@@ -31,10 +31,6 @@ export default function AppLayout({
   const { signOut } = useClerk();
   const { user } = useUser();
 
-  const handleLogoClick = () => {
-    router.push("/");
-  };
-
   const handleSignOut = async () => {
     await signOut();
   };
