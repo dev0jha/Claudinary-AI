@@ -64,13 +64,11 @@ export const PricingCard = ({
         }}
       >
         <div className="flex flex-col items-center border-b pb-6 dark:border-zinc-700 border-zinc-200">
-          <span className="mb-6 inline-block dark:text-zinc-50 text-zinc-900">
-            {tier}
-          </span>
+          <span className="mb-6 inline-block text-zinc-50">{tier}</span>
           <span className="mb-3 inline-block text-4xl font-medium">
             {price}
           </span>
-          <span className="dark:bg-gradient-to-br dark:from-zinc-200 dark:to-zinc-500 bg-gradient-to-br from-zinc-700 to-zinc-900 bg-clip-text text-center text-transparent">
+          <span className="bg-gradient-to-br from-zinc-200 to-zinc-500 bg-clip-text text-center text-transparent">
             {bestFor}
           </span>
         </div>
